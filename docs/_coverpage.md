@@ -1,6 +1,6 @@
 <!-- coverpage.md -->
 
-<img src="/media/logo.png" alt="logo" style="zoom: 50%;" />
+<img src="./media/logo.png" alt="logo" style="zoom: 50%;" />
 
 <br>
 
