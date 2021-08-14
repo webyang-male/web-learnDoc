@@ -1,6 +1,7 @@
 <!-- sidebar.md -->
 
 - 笔记 ✏️
-	- [《数据结构（JavaScript）》](/notes/)
-	- [《软考》](/notes/)
+	- [《ECMAScript 6》](/notes/ECMAScript/)
+	- [《数据结构（JavaScript）》](/notes/dataStructure/)
+	- [《软考》](/notes/programmerExamination/)
 
