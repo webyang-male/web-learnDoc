@@ -1,96 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>大赵同学的文档</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="Author" content="大赵同学" />
+    <meta
+      name="Keywords"
+      content="个人文档网站 大赵同学 个人网站 文档网站 wiki"
+    />
+    <meta name="description" content="大赵同学的文档-大赵同学个人文档网站" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
+    />
+    <link rel="icon" href="./media/favicon.ico" />
+    <link rel="stylesheet" href="./media/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"
+    />
+    <!-- 自定义JavaScript -->
+    <script src="/media/js/main.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <title>大赵同学的文档</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="Author" content="大赵同学" />
-  <meta name="Keywords" content="个人文档网站 大赵同学 个人网站 文档网站 wiki" />
-  <meta name="description" content="大赵同学的文档-大赵同学个人文档网站" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
-  <link rel="icon" href="./media/favicon.ico" />
-  <link rel="stylesheet" href="./media/css/main.css" />
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css" />
-  <!-- 自定义JavaScript -->
-  <script src="/media/js/main.js"></script>
-</head>
+  <body>
+    <div id="app">文档加载中</div>
+    <script>
+      window.$docsify = {
+        // 左上角文档标题
+        name: "大赵同学的文档",
+        repo: "https://github.com/webyang-male/doc",
+        //封面
+        coverpage: true,
+        //导航栏
+        loadNavbar: true,
+        //侧边栏logo
+        logo: "/media/logo.png",
+        // 在找不到指定页面时加载404.md
+        notFoundPage: true,
+        // 加载自定义404页面
+        notFoundPage: "404.md",
+        // 侧边栏
+        loadSidebar: true,
+        loadSidebar: "_sidebar.md",
+        autoHeader: true,
+        subMaxLevel: 6, //自定义侧边栏同时也可以开启目录功能
 
-<body>
-  <div id="app">文档加载中</div>
-  <script>
-    window.$docsify = {
-      // 左上角文档标题
-      name: "大赵同学的文档",
-      repo: "https://github.com/webyang-male/doc",
-      //封面
-      coverpage: true,
-      //导航栏
-      loadNavbar: true,
-      //侧边栏logo
-      logo: "/media/logo.png",
-      // 在找不到指定页面时加载404.md
-      notFoundPage: true,
-      // 加载自定义404页面
-      notFoundPage: "404.md",
-      // 侧边栏
-      loadSidebar: true,
-      loadSidebar: "_sidebar.md",
-      autoHeader: true,
-      subMaxLevel: 6, //自定义侧边栏同时也可以开启目录功能
+        // 主题色
+        themeColor: "#81D8CF",
 
-      // 主题色
-      themeColor: "#81D8CF",
+        //最大渲染的标题层级
+        maxLevel: 6,
 
-      //最大渲染的标题层级
-      maxLevel: 6,
+        //本地搜索
+        search: {
+          maxAge: 86400000, // 过期时间，单位毫秒，默认一天
+          paths: "auto",
+          placeholder: "搜索",
+          noData: "找不到结果",
+          // 搜索标题的最大程级, 1 - 6
+          depth: 6,
+        },
 
-      //本地搜索
-      search: {
-        maxAge: 86400000, // 过期时间，单位毫秒，默认一天
-        paths: "auto",
-        placeholder: "搜索",
-        noData: "找不到结果",
-        // 搜索标题的最大程级, 1 - 6
-        depth: 6,
-      },
+        //字数统计
+        count: {
+          countable: true,
+          fontsize: "0.9em",
+          color: "rgb(90,90,90)",
+          language: "chinese",
+        },
 
-      //字数统计
-      count: {
-        countable: true,
-        fontsize: "0.9em",
-        color: "rgb(90,90,90)",
-        language: "chinese",
-      },
+        //tab标签
+        tabs: {
+          persist: true, // default
+          sync: true, // default
+          theme: "classic", // default
+          tabComments: true, // default
+          tabHeadings: true, // default
+        },
+        //分页组件
+        pagination: {
+          previousText: "上一章节",
+          nextText: "下一章节",
+          crossChapter: true,
+          crossChapterText: true,
+        },
+      };
+    </script>
+    <!-- Docsify v4 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+    <!-- 本地搜索 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+    <!-- 外链脚本 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/external-script.min.js"></script>
+    <!-- 字数统计 -->
+    <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
+    <!-- 复制到剪贴板 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+    <!-- emoji解析增强 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+    <!-- docsify-tabs (latest v1.x.x) -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+    <!-- 图片缩放 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+    <!-- 分页章节 -->
+    <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
 
-      //tab标签
-      tabs: {
-        persist: true, // default
-        sync: true, // default
-        theme: 'classic', // default
-        tabComments: true, // default
-        tabHeadings: true // default
-      },
-    };
-  </script>
-  <!-- Docsify v4 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-  <!-- 本地搜索 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-  <!-- 外链脚本 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/external-script.min.js"></script>
-  <!-- 字数统计 -->
-  <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
-  <!-- 复制到剪贴板 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
-  <!-- emoji解析增强 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
-  <!-- docsify-tabs (latest v1.x.x) -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
-
-  <!-- 代码块高亮 -->
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
-
-</body>
-
+    <!-- 代码块高亮 -->
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+  </body>
 </html>

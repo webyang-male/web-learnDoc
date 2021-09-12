@@ -4,3 +4,6 @@ p {
 p > a {
   text-indent: 0em;
 }
+font{
+  font-weight: 700;
+}
