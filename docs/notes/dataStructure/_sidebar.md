@@ -1,8 +1,7 @@
-## 目录
+#### 必备基础
 
-### 章节1
+- [数组](/notes/dataStructure/数组.md)
+- [栈](/notes/dataStructure/栈.md)
 
-### 章节2
 
-### 章节3
 
