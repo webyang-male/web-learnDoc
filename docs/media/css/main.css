@@ -4,6 +4,11 @@ p {
 p > a {
   text-indent: 0em;
 }
-font{
+font {
   font-weight: 700;
+}
+@media screen and (max-width: 768px) {
+  .content {
+    padding-top: 80px !important;
+  }
 }
