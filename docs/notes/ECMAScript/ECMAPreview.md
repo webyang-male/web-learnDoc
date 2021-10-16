@@ -16,6 +16,7 @@
 1. 安装配置好[Node](https://nodejs.org/zh-cn/)，切换淘宝源（方便国内加速下载）。
 2. NPM下载mooc插件https://www.npmjs.com/package/imooc-es-cli。
 3. 当前工程路径下使用命令创建工程文件`imooc-es-cli init | i  `，注意随后的自定义工程文件名为英文并且仍需在cd切换进入工程文件目录后使用`npm i`命令安装依赖。
+4. 启动项目命令`npm run start`
 
 #### 插件ReadMe：
 
@@ -50,4 +51,6 @@ Usage: imooc-es-cli <command>
 ### 附
 
 [Babel 是一个 JavaScript 编译器](https://www.babeljs.cn/)
+
+[现代 JavaScript 教程](https://zh.javascript.info/)
 

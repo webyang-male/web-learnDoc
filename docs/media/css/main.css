@@ -1,18 +1,47 @@
+/* 全局样式 */
+font {
+  font-weight: 700;
+}
 p {
   text-indent: 2em;
 }
 p > a {
   text-indent: 0em;
 }
-font {
-  font-weight: 700;
-}
+/* 移动端样式 */
 @media screen and (max-width: 768px) {
+  /* 文档标题和时间统计/字数错位修复 */
   .content {
     padding-top: 80px !important;
   }
+  /* 首页开屏按钮错位修复 */
   body > section > div.cover-main > p > a:nth-child(2) {
     position: relative;
     left: 4%;
   }
+}
+/* 警告框 */
+ol, p, ul {
+  line-height: 1.7;
+}
+.custom-block.warning {
+  background-color: rgba(255, 229, 100, 0.3);
+  border-color: #e7c000;
+  color: #6b5900;
+}
+.custom-block.danger,
+.custom-block.tip,
+.custom-block.warning {
+  padding: 0.1rem 1.5rem;
+  border-left-width: 0.5rem;
+  border-left-style: solid;
+  margin: 1rem 0;
+}
+.custom-block.warning .custom-block-title {
+  color: #b29400;
+}
+
+.custom-block .custom-block-title {
+  font-weight: 600;
+  margin-bottom: -.4rem;
 }
