@@ -21,7 +21,9 @@ p > a {
   }
 }
 /* 警告框 */
-ol, p, ul {
+ol,
+p,
+ul {
   line-height: 1.7;
 }
 .custom-block.warning {
@@ -43,5 +45,25 @@ ol, p, ul {
 
 .custom-block .custom-block-title {
   font-weight: 600;
-  margin-bottom: -.4rem;
+  margin-bottom: -0.4rem;
+}
+@media screen and (max-width: 768px) {
+  .fly_to_top {
+    right: -20px !important;
+    transition: 0.3s;
+    bottom: -51px !important;
+    opacity: 1;
+    transform: scale(0.4) !important;
+    display: none;
+  }
+}
+
+.fly_to_top {
+  position: fixed;
+  right: 5px;
+  transition: 0.3s;
+  bottom: -40px;
+  opacity: 1;
+  transform: scale(0.8);
+  display: none;
 }
