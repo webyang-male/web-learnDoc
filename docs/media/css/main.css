@@ -67,3 +67,8 @@ ul {
   transform: scale(0.8);
   display: none;
 }
+/* 图片样式调整 */
+.promise {
+  max-width: 60%;
+  max-height: 80%;
+}
