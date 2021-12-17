@@ -12,7 +12,7 @@ p > a {
 @media screen and (max-width: 768px) {
   /* 文档标题和时间统计/字数错位修复 */
   .content {
-    padding-top: 80px !important;
+    padding-top: 95px !important;
   }
   /* 首页开屏按钮错位修复 */
   body > section > div.cover-main > p > a:nth-child(2) {
@@ -31,6 +31,11 @@ ul {
   border-color: #e7c000;
   color: #6b5900;
 }
+.custom-block.danger {
+  background-color: rgb(255 230 230);
+  border-color: rgb(204 0 0);
+  color: rgb(77 0 0);
+}
 .custom-block.danger,
 .custom-block.tip,
 .custom-block.warning {
@@ -42,7 +47,9 @@ ul {
 .custom-block.warning .custom-block-title {
   color: #b29400;
 }
-
+.custom-block.danger .custom-block-title {
+  color: rgb(153 0 0);
+}
 .custom-block .custom-block-title {
   font-weight: 600;
   margin-bottom: -0.4rem;
