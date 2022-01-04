@@ -12,7 +12,7 @@
   [第一章 ES7数组&数值拓展](/notes/ECMAScript/es7)
 
 -  ECMAScript2017（ES8）
-  [第一章 ES8](/notes/ECMAScript/es8)
+  [第一章 ES8异步编程&对象拓展](/notes/ECMAScript/es8)
 
 - ECMAScript2018（ES9）
   [第一章 ES9](/notes/ECMAScript/es9)
