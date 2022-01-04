@@ -36,6 +36,10 @@ ul {
   border-color: rgb(204 0 0);
   color: rgb(77 0 0);
 }
+.custom-block.tip {
+  background-color: rgb(243 245 247);
+  border-color: rgb(66 185 131);
+}
 .custom-block.danger,
 .custom-block.tip,
 .custom-block.warning {

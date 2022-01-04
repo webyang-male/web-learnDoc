@@ -1,1 +1,186 @@
-test
+async 和 await 是一种更加优雅的异步编程解决方案，是Promise 的拓展。
+
+在我们处理异步的时候，比起回调函数，Promise的then方法会显得较为简洁和清晰，但是在处理多个彼此之间相互依赖的请求的时候，就会显的有些繁琐。这时候，用async/await更加优雅。
+
+JavaScript 是单线程的，使用 Promise 之后可以让我们书写异步操作更加简单，而 async 是让我们写起 Promise 像同步操作。
+
+### 基本语法
+
+前面添加了async的函数在执行后都会自动返回一个Promise对象:
+
+```js
+function foo() {
+    return '大耳朵猴'
+}
+console.log(foo()) // '大耳朵猴'
+```
+
+相当于
+
+```js
+async function foo() {
+    return '缨可路的' // Promise.resolve('缨可路的')
+
+    // let res =  Promise.resolve('缨可路的')
+    // console.log(res)
+}
+console.log(foo()) // Promise
+foo()
+```
+
+await后面需要跟异步操作，不然就没有意义，而且await后面的Promise对象不必写then，因为await的作用之一就是获取后面Promise对象成功状态传递出来的参数。
+
+```js
+function timeout() {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            console.log(1)
+            resolve() // resolve('success')
+        }, 1000)
+    })
+}
+
+// 不加async和await是2、1   加了是1、2
+async function foo() {
+    await timeout() // let res = await timeout() res是success
+    console.log(2)
+}
+foo()
+```
+
+### 对于失败的处理
+
+```js
+function timeout() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            // resolve('success')
+            reject('error')
+        }, 3000)
+    })
+}
+async function foo() {
+    return await timeout()
+}
+foo().then(res => {
+    console.log(res)
+}).catch(err => {
+    console.log(err)
+})
+```
+
+✒在async函数中使用await，那么await这里的代码就会变成同步的了，意思就是说只有等await后面的Promise执行完成得到结果才会继续下去，await就是等待。
+
+### Object 扩展
+
+之前的语法获取对象的每一个属性值：
+
+```js
+const obj = {
+    name: '百度',
+    web: 'www.baidu.com',
+    course: 'search'
+}
+console.log(Object.keys(obj))
+const res = Object.keys(obj).map(key => obj[key])
+console.log(res)
+// ["百度", "www.baidu.com", "search"]
+```
+
+ES8中对象扩展补充了两个静态方法，用于遍历对象：`Object.values()，Object.entries()`
+
+#### Object.values()
+
+> Object.values() 返回一个数组，其元素是在对象上找到的可枚举属性值。属性的顺序与通过手动循环对象的属性值所给出的顺序相同(for...in，但是for...in还会遍历原型上的属性值)。
+
+```js
+const obj = {
+    name: 'zain',
+    web: 'https://zain-books.vercel.app/',
+    course: 'life'
+}
+
+console.log(Object.values(obj))
+// ["zain", "https://zain-books.vercel.app/", "https://zain-books.vercel.app/"]
+```
+
+#### Object.entries()
+
+> Object.entries()方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for...in 循环遍历该对象时返回的顺序一致。（区别在于 for-in 循环也枚举原型链中的属性）
+
+```js
+let grade = {
+    'XL': 98,
+    'zain': 87
+}
+
+for (let [key, value] of grade) {
+    console.log(key, value) // Uncaught TypeError: grade is not iterable
+}
+```
+
+我们知道 Object 是不可直接遍历的，上述代码足以说明直接遍历触发了错误。如果使用 `Object.entries()` 则可以完成遍历任务。
+
+```js
+let grade = {
+    'XL': 98,
+    'zain': 87
+}
+
+for (let [k, v] of Object.entries(grade)) {
+    console.log(k, v)
+    // XL 98
+    // zain 87
+}
+```
+
+这段代码确实成功的遍历了出来，但是上边说过 Object.entries 返回的是数组，这里面还用了数组的解构赋值
+
+![](https://gitee.com/initzzy/blog-image/raw/master/Object.entries().png)
+
+#### Object.getOwnPropertyDescriptors()
+
+```js
+const data = {
+    Portland: '78/50',
+    Dublin: '88/52',
+    Lima: '58/40'
+}
+```
+
+还是上述那个对象，这里有 key 和 value，上边的代码把所有的 key、value 遍历出来，如果我们不想让 Lima 这个属性和值被枚举怎么办？
+
+```js
+Object.defineProperty(data, 'Lima', {
+    enumerable: false
+})
+
+Object.entries(data).map(([city, temp]) => {
+    console.log( `City: ${city.padEnd(16)} Weather: ${temp}` )
+    // City: Portland         Weather: 78/50
+    // City: Dublin           Weather: 88/52
+})
+```
+
+很成功，Lima 没有被遍历出来，那么 defineProperty 的第三个参数就是描述符(descriptor)。这个描述符包括几个属性：
+
+- value [属性的值]
+- writable [属性的值是否可被改变]
+- enumerable [属性的值是否可被枚举]
+- configurable [描述符本身是否可被修改，属性是否可被删除]
+
+如果想查看更多细节，访问 [Object.defineProperty](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)。
+
+```js
+console.log(Object.getOwnPropertyDescriptor(data, 'Lima'))
+// {value: "58/40", writable: true, enumerable: false, configurable: true}
+```
+
+这个是获取对象指定属性的描述符，如果想获取对象的所有属性的描述符：
+
+```js
+console.log(Object.getOwnPropertyDescriptors(data))
+```
+
+![](https://gitee.com/initzzy/blog-image/raw/master/getownproperty.png)
+
