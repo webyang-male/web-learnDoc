@@ -262,3 +262,24 @@ console.log(str2.padEnd(5))
 console.log(new Date().getTime()) // 时间戳 13位的
 timestamp = +String(timestamp).padEnd(13, '0')
 ```
+
+### 尾逗号 Trailing commas
+
+ES8 允许函数的最后一个参数有尾逗号（Trailing comma）。
+
+<font style="color:#FF4500;">此前，函数定义和调用时，都不允许最后一个参数后面出现逗号。</font>
+
+````js
+function foo(
+  param1,
+  param2,
+) {
+  /* ... */
+}
+
+foo(
+  'arg1',
+  'arg2',
+)
+````
+
