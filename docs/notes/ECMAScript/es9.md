@@ -195,3 +195,112 @@ console.log(test.match(/(?<=world\s)hello/))
 ### Object 扩展
 
 #### Rest & Spread
+
+````js
+const obj1 = {
+    name: 'LX',
+    age: 21
+}
+const obj2 = {
+    school: 'imooc',
+    age: 18
+}
+
+// 合并对象
+const obj4 = {...obj1, ...obj2}
+console.log(obj4)
+````
+
+这块代码展示了 spread 语法，可以把`obj1,obj2` 对象的数据都拓展到`obj3` 对象，这个功能很实用。
+
+我们再来看下 Object rest 的示例：
+
+```js
+const input = {
+  a: 1,
+  b: 2,
+  c: 3
+}
+
+let { a, ...rest } = input
+
+console.log(a, rest) // 1 {b: 2, c: 3}
+```
+
+当对象 key-value 不确定的时候，把必选的 key 赋值给变量，用一个变量收敛其他可选的 key 数据，这在之前是做不到的。
+
+### Promise拓展
+
+#### Promise.prototype.finally()
+
+指定不管最后状态如何都会执行的回调函数。
+
+`Promise.prototype.finally()` 方法返回一个`Promise`，在promise执行结束时，无论结果是`fulfilled`或者是`rejected`，在执行then()和catch()后，<font style="color:rgb(34 153 221);">都会执行finally指定的回调函数</font>。这为指定执行完promise后，无论结果是fulfilled还是rejected都需要执行的代码提供了一种方式，避免同样的语句需要在`then()`和`catch()`中各写一次的情况。
+
+````js
+new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve('success')
+        // reject('fail')
+    }, 1000)
+}).then(res => {
+    console.log(res)
+}).catch(err => {
+    console.log(err)
+}).finally(()=>{
+    console.log('finally')
+})
+````
+
+##### 场景1：loading关闭
+
+需要每次发送请求，都会有loading提示，请求发送完毕，就需要关闭loading提示框，不然界面就无法被点击。不管请求成功或是失败，这个loading都需要关闭掉，这时把关闭loading的代码写在finally里再合适不过了。
+
+###### 场景2：数据库断开链接
+
+```js
+let connection
+db.open()
+    .then(conn => {
+        connection = conn
+        return connection.select({
+            name: 'Jane'
+        })
+    })
+    .then(result => {
+        // Process result
+        // Use `connection` to make more queries
+    })···
+    .catch(error => {
+        // handle errors
+    })
+    .finally(() => {
+        connection.close()
+    })
+```
+
+###  字符串扩展
+
+放松对标签模板里字符串转义的限制, 遇到不合法的字符串转义返回`undefined`，并且从raw上可获取原字符串。
+
+ES9开始，模板字符串允许嵌套支持常见转义序列，移除对ECMAScript在带标签的模版字符串中转义序列的语法限制。
+
+ES9 标准移除了对 ECMAScript带标签的模板字符串 中转义序列的语法限制。
+
+```js
+function tag(strs) {
+    console.log(strs)
+    // strs[0] === undefined
+    // strs.raw[0] === "\\unicode and \\u{55}"
+}
+
+// 在标签函数中使用
+tag `\u{61} and \u{62}`  //
+tag `\u{61} and \unicode`  // 结果是 undefined
+
+// 之前的版本会报错：Invalid Unicode escape sequence
+// 无效的Unicode转义序列
+
+// 报错：
+let w = `bad escape sequence: \unicode`
+```
