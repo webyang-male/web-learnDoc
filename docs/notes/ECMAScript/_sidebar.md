@@ -23,3 +23,8 @@
 - ECMAScript2020（ES11）
   [第一章 新特性初探](/notes/ECMAScript/es11)
 
+- 环境构建
+  [第一节 Webpack](/notes/ECMAScript/webpackBuild)
+  [第二节 Babel](/notes/ECMAScript/Babel)
+
+- [👨‍🎓完结](/notes/ECMAScript/end)
