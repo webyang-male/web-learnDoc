@@ -79,4 +79,13 @@ window.onload = function () {
   };
 };
 
-
+//百度收录
+!(function () {
+  let head = document.head || document.getElementsByTagName("head")[0];
+  if (head != undefined) {
+    head += `<meta name="baidu-site-verification" content="code-6zDjFBuJYk" />`;
+    document.getElementsByTagName("head")[0].innerHTML += head;
+  } else {
+    console.log("head is undefined");
+  }
+})();
