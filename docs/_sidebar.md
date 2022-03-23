@@ -4,5 +4,5 @@
 	- [《ECMAScript 6》](/notes/ECMAScript/ECMAPreview.md)
 	- [《数据结构（JavaScript）》](/notes/dataStructure/)
 	- [《软考》](/notes/programmerExamination/)
-	<!-- - [《Vue3.0从入门到放弃》](/notes/Vue/vuePreview.md)	 -->
+	- [《计算机基础》](/notes/basicComputer/BCKAO.md)	
 
