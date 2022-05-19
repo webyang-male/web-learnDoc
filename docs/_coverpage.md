@@ -10,7 +10,7 @@
 
 <br>
 
-[GitHub](https://github.com/webyang-male/doc) [Get Started!](/README)
+[GitHub 💖](https://github.com/webyang-male/doc) [Get Started 🚀](/README)
 
 <!-- 背景图片 -->
 

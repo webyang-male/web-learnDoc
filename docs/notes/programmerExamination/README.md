@@ -2,7 +2,7 @@
 
 这种考试分5个专业类别：计算机软件、计算机网络、计算机应用技术、信息系统、信息服务。每个专业又分三个层次：高级资格（高级工程师）、中级资格（工程师）、初级资格（助理工程师、技术员）。对每个专业、每个层次，设置了若干个资格（或级别）。
 
-<img src="https://cdn.jsdelivr.net/gh/webyang-male/yangimgs/rk.png"/>
+<img src="https://fastly.jsdelivr.net/gh/webyang-male/yangimgs/rk.png"/>
 
 [🌏湖北软考网](http://apply.hbsoft.net/)
 
