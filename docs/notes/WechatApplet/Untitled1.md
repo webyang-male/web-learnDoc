@@ -107,3 +107,25 @@ WXML 是小程序的标签语言 ，作用和 HTML 一样。
 - 表单类组件 `<input>` 、`<button>`
 - 轮播图组件 `<swiper>`
 
+####  `<swiper>`
+
+轮播图组件 `<swiper>`本质是微信团队给小程序开发者提供的滑块视图容器。其中只可放置[swiper-item](https://developers.weixin.qq.com/miniprogram/dev/component/swiper-item.html)组件，否则会导致未定义的行为。
+
+[swiper-item](https://developers.weixin.qq.com/miniprogram/dev/component/swiper-item.html)组件内部提供一个插槽，理论可以放置任何元素，比如`text`组件
+
+##### ⚠️踩坑点
+
+###### 给轮播图设置横向全屏
+
+需要给`swiper`和[swiper-item](https://developers.weixin.qq.com/miniprogram/dev/component/swiper-item.html)组件内部的`image`组件设置宽高。
+
+###### 不显示轮播面板指示点
+
+```xml
+    <swiper indicator-dots="{{false}}">
+        <swiper-item>
+            <image></image>
+        </swiper-item>
+    </swiper>
+```
+
