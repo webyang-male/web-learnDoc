@@ -129,3 +129,13 @@ WXML 是小程序的标签语言 ，作用和 HTML 一样。
     </swiper>
 ```
 
+<div class="custom-block tip">
+  <p class="custom-block-title">TIP	布尔属性值赋值的良好建议</p> 
+  <p>当有属性需要设置布尔值时，为了规范，可以都加上双花括号。</p>
+  <p>同时，当要设置的布尔值为true时，也可以简写为只写属性名，不需要写true or false。</p>
+</div>
+
+
+
+
+

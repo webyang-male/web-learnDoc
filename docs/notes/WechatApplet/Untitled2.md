@@ -2,7 +2,15 @@
 
 将数据绑定到组件上，以便让它们渲染到页面。页面渲染相关的数据放在`Page({data: {}})` 中，页面模板中绑定要渲染的数据使用 `{{ }}`绑定数据。
 
-数据绑定操作步骤：
+<div class="custom-block tip">
+  <p class="custom-block-title">理解data和this.setData</p> 
+  <p>setData的数据是一个js对象;所有setData会把数据最终放到了data中</p>
+  <p>这也很好理解，data是存放数据的，可以直接在data中定义数据，但是一些数据并不是提前定义好的，是在某个场景下产生的，就用setData往data中写入数据</p>
+</div>
+
+<font style="color:#3eaf7c;">两种方式本质都是在data中添加数据，只是在第二种方式中，小程序底层为我们做了向data中添加数据。</font>
+
+##### 数据绑定操作步骤：
 
 1. 新增一个页面data, 在页面 js 中定义参与页面渲染的数据。
 
@@ -17,12 +25,16 @@ Page({
 
 ```
 
-1. 在页面 wxml 中使用 {{ }} 绑定数据。
+​	2.在页面` wxml `中使用 {{ }} 绑定数据。
 
 ```js
 <view id="{{id}}" class="{{myclass}}">{{message}}</view>
 
 ```
+
+🖌
+
+<ul class="list-paddingleft-2"><li><p>对于所有要进行数据绑定的变量，都应该预先在data中进行定义</p></li><li><p>data里的定义类似于初始值</p></li><li><p>如果要更新改动初始值，就使用setData</p></li></ul>
 
 ## 插值表达式
 
@@ -127,4 +139,50 @@ Page({
 <view wx:elif="{{year < 4}}">中级前端</view>
 <view wx:elif="{{year < 6}}">高级前端</view>
 <view wx:else>专家</view>
+```
+
+## block标签
+
+> 使用 标签将控制属性（列表渲染或条件渲染的属性）从组件上分离出去。`<block/>` 并不是一个组件，它仅仅是一个包装元素，不会在页面中做任何渲染，只接受控制属性。template 空标签(不渲染任何实质的内容) 用于包裹一堆标签。使用 `<block>` 标签的好处是提高代码可读性、可以提升某些场景下的性能、不会创建额外的组件实例。
+
+条件渲染示例：
+
+```js
+<!-- 使用前 -->
+<view wx:if="{{ isShow }}">A</view>
+
+<!-- 使用后 -->
+<block wx:if="{{ isShow }}">
+  <view>A</view>
+</block>
+```
+
+列表渲染。
+
+```js
+<!-- 使用前 -->
+<view wx:for="{{books}}">
+	{{ item.name }}
+</view>
+
+<!-- 使用后 -->
+<block wx:for="{{books}}" wx:key="id">
+  <view>{{ item.name }}</view>
+</block>
+```
+
+减少判断，用于提升性能。
+
+```js
+<!-- 使用前 -->
+<view wx:if="{{isShow}}">hello</view>
+<text wx:if="{{isShow}}">world</text>
+<button wx:if="{{isShow}}">按钮</button>
+
+<!-- 使用后 -->
+<block wx-if="{{isShow}}">
+  <view>hello</view>
+  <text>world</text>
+  <button>按钮</button>
+</block>
 ```
