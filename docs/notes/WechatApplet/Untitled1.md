@@ -11,7 +11,36 @@
 
 #### 1.2 app.js文件 
 
+​	https://developers.weixin.qq.com/miniprogram/dev/framework/app-service/app.html
+
 ​	app.js文件是整个项目的一个总体配置。里面包含了项目运行生命周期的回调函数。
+
+**示例代码**
+
+```js
+App({
+  globalData: 'I am global data'
+})
+```
+
+###### AppObject getApp(Object object)
+
+获取到小程序全局唯一的 `App` 实例。
+
+**示例代码**
+
+```js
+// other.js
+var appInstance = getApp()
+console.log(appInstance.globalData) // I am global data
+```
+
+##### 注意事项
+
+- 不要在定义于 `App()` 内的函数中，或调用 `App` 前调用 `getApp()` ，使用 `this` 就可以拿到 app 实例。
+- 通过 `getApp()` 获取实例之后，不要私自调用生命周期函数。
+
+
 
 #### 1.3 app.json文件
 
@@ -134,7 +163,6 @@ WXML 是小程序的标签语言 ，作用和 HTML 一样。
   <p>当有属性需要设置布尔值时，为了规范，可以都加上双花括号。</p>
   <p>同时，当要设置的布尔值为true时，也可以简写为只写属性名，不需要写true or false。</p>
 </div>
-
 
 
 

@@ -6,6 +6,8 @@
 
 \- [第4章 微信小程序事件/路由](/notes/WechatApplet/Untitled4.md)
 
+\- [第5章 微信小程序](/notes/WechatApplet/Untitled5.md)
+
 -  其他
 [微信开发者工具](/notes/WechatApplet/wxdevtools.md)
 
