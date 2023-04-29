@@ -1,6 +1,5 @@
-<img src="https://fastly.jsdelivr.net/gh/webyang-male/yangimgs/docker.webp" style="width:760px;height:430px;"/>
 
-Docker 作为轻量级虚拟化技术，拥有持续集成、版本控制、可移植性、隔离性和安全性等优势。本文使用Docker来部署一个vue的前端应用，并尽可能详尽的介绍了实现思路和具体步骤，以方便有类似需要的同学参考。
+&ensp;Docker 作为轻量级虚拟化技术，拥有持续集成、版本控制、可移植性、隔离性和安全性等优势。本文使用Docker来部署一个vue的前端应用，并尽可能详尽的介绍了实现思路和具体步骤，以方便有类似需要的同学参考。
 
 > Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，该容器包含了应用程序的代码、运行环境、依赖库、配置文件等必需的资源，通过容器就可以实现方便快速并且与平台解耦的自动化部署方式，无论你部署时的环境如何，容器中的应用程序都会运行在同一种环境下。（更多详情请移步docker官网查看[docker](https://link.juejin.cn?target=https%3A%2F%2Fwww.docker.com%2F)）
 
